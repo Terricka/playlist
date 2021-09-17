@@ -15,6 +15,7 @@ interface State {
   textValue: string,
   showPlayer: any;
   showError: boolean;
+  audioUrl: string;
 };
 
 
@@ -27,7 +28,8 @@ class App extends Component<any, State> {
       disableButton: true,
       textValue: '',
       showPlayer: false,
-      showError: false
+      showError: false,
+      audioUrl: ''
     }
   }
 
@@ -44,13 +46,14 @@ class App extends Component<any, State> {
     console.log(this.state)
 
     setTimeout(() => {
+      this.setState({audioUrl: 'https://www.kozco.com/tech/piano2.wav'})
       this.setState({showPlayer : true})
     }, 1500)
   }
 
   render () {
 
-    let {disableButton, textValue, showPlayer, showError} = this.state;
+    let {disableButton, textValue, showPlayer, showError, audioUrl} = this.state;
 
     return (
       <div className="App">
@@ -69,6 +72,7 @@ class App extends Component<any, State> {
         />
         <AudioPlayer
           key={showPlayer}
+          audioUrl={audioUrl}
           showPlayer={showPlayer}
         />
       </div>

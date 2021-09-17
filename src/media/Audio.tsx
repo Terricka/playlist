@@ -3,6 +3,7 @@ import './media.scss'
 
 interface AudioPlayerProps {
     showPlayer: boolean;
+    audioUrl: string;
 }
 
 interface AudioPlayerState {
@@ -17,13 +18,12 @@ class AudioPlayer extends Component<AudioPlayerProps, AudioPlayerState> {
         super(props)
         this.state = {
             showPlayer: this.props.showPlayer,
-            audioUrl: 'https://www.kozco.com/tech/piano2.wav'
+            audioUrl: this.props.audioUrl
         }
     }
 
     handleCopyClick = () => {
-        navigator.clipboard.writeText(this.state.audioUrl);
-        
+        navigator.clipboard.writeText(this.state.audioUrl);   
     }
 
 
@@ -42,7 +42,7 @@ class AudioPlayer extends Component<AudioPlayerProps, AudioPlayerState> {
                     <button 
                         onClick={this.handleCopyClick}
                     >
-                        Copy
+                        Copy URL
                     </button>
                 </div>
             )
