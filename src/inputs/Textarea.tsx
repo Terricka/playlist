@@ -1,15 +1,18 @@
-import React from "react";
+import React, { Component } from "react";
 import './inputs.scss'
 
-function Textarea () {
-    return (
-        <textarea 
+
+class Textarea extends Component {
+    render () {
+        return (
+            <textarea 
             rows={10}
             className="input textarea"
         >
             
         </textarea>
-    )
+        )
+    }
 }
 
 export default Textarea

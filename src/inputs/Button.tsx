@@ -1,14 +1,16 @@
-import React from "react";
+import React, { Component } from "react";
 import './inputs.scss'
 
-function Button () {
-    return (
-        <div className="submit-button-container">
+class Button extends Component {
+    render () {
+        return (
+            <div className="submit-button-container">
              <button>
                 Submit
             </button>
-        </div>     
-    )
+        </div>  
+        )
+    }
 }
 
 export default Button
