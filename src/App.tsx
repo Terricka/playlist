@@ -13,7 +13,7 @@ interface Props {
 interface State {
   disableButton: any,
   textValue: string,
-  showPlayer: boolean;
+  showPlayer: any;
   showError: boolean;
 };
 
@@ -42,6 +42,10 @@ class App extends Component<any, State> {
 
   handleSubmitClick = () => {
     console.log(this.state)
+
+    setTimeout(() => {
+      this.setState({showPlayer : true})
+    }, 1500)
   }
 
   render () {
@@ -64,6 +68,7 @@ class App extends Component<any, State> {
           showError={showError}
         />
         <AudioPlayer
+          key={showPlayer}
           showPlayer={showPlayer}
         />
       </div>
