@@ -1,9 +1,10 @@
-import React, { Component } from "react";
+import React, { Component, MouseEventHandler } from "react";
 import './inputs.scss';
 
 interface ButtonProps {
     disableButton: any;
     textValue: string;
+    submitClicked: any;
 }
 
 interface ButtonState {
@@ -29,7 +30,12 @@ export default class Button extends Component<ButtonProps, ButtonState> {
             this.setState({disabled: true})
         }
         
-        
+        this.handleClick = this.handleClick.bind(this)
+    }
+
+    handleClick = (event: React.MouseEvent) => {
+        console.log(event)
+        this.props.submitClicked();
     }
 
     render () {
@@ -40,6 +46,7 @@ export default class Button extends Component<ButtonProps, ButtonState> {
              <button 
                 disabled={disabled}
                 className={disabled ? 'disabled' : 'enabled'}
+                onClick={this.handleClick}
              >
                 {label}
             </button>

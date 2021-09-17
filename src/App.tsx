@@ -36,6 +36,10 @@ class App extends Component<any, State> {
     }
   }
 
+  handleSubmitClick = () => {
+    console.log(this.state)
+  }
+
   render () {
 
     let {disableButton, textValue} = this.state;
@@ -48,6 +52,7 @@ class App extends Component<any, State> {
           key={disableButton}
           disableButton={disableButton} 
           textValue={textValue} 
+          submitClicked = {this.handleSubmitClick} 
         />
         <Message />
         <AudioPlayer />
