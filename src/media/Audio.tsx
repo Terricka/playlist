@@ -6,8 +6,8 @@ function AudioPlayer () {
         <audio 
             className="media audio"
             controls
-        >
-            
+        >   
+            <source src="https://www.kozco.com/tech/piano2.wav"></source>
         </audio>
     )
 }
