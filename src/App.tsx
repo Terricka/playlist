@@ -12,7 +12,9 @@ interface Props {
 
 interface State {
   disableButton: any,
-  textValue: string
+  textValue: string,
+  showPlayer: boolean;
+  showError: boolean;
 };
 
 
@@ -24,6 +26,8 @@ class App extends Component<any, State> {
     this.state = {
       disableButton: true,
       textValue: '',
+      showPlayer: false,
+      showError: false
     }
   }
 
@@ -42,20 +46,26 @@ class App extends Component<any, State> {
 
   render () {
 
-    let {disableButton, textValue} = this.state;
+    let {disableButton, textValue, showPlayer, showError} = this.state;
 
     return (
       <div className="App">
         <Header />
-        <Textarea textareaUpdate = {this.handleTextareaUpdate} />
+        <Textarea 
+          textareaUpdate = {this.handleTextareaUpdate} 
+        />
         <Button 
           key={disableButton}
           disableButton={disableButton} 
           textValue={textValue} 
           submitClicked = {this.handleSubmitClick} 
         />
-        <Message />
-        <AudioPlayer />
+        <Message 
+          showError={showError}
+        />
+        <AudioPlayer
+          showPlayer={showPlayer}
+        />
       </div>
     )
   }

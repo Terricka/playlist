@@ -1,11 +1,35 @@
 import React, { Component } from "react";
 import './misc.scss'
 
-class Message extends Component {
+interface MessageProps {
+    showError: boolean;
+}
+
+interface MessageState {
+    showError: boolean; 
+};
+
+class Message extends Component<MessageProps, MessageState> {
+
+    constructor(props: MessageProps) {
+        super(props)
+        this.state = {
+            showError: this.props.showError
+        }
+    }
+
     render () {
-        return (
-            <p>Message goes here</p>
-        )
+
+        let {showError} = this.state;
+
+        if (showError){
+            return (
+                <p>Message goes here</p>
+            );
+        } else {
+            return '';
+        }
+        
      }
 }
 

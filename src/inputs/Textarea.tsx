@@ -42,6 +42,6 @@ export default class Textarea extends Component<TextareaProps, TextareaState> {
         >
             
         </textarea>
-        )
+        );
     }
 }
