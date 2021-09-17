@@ -11,7 +11,7 @@ interface Props {
 }
 
 interface State {
-  disableButton: boolean,
+  disableButton: any,
   textValue: string
 };
 
@@ -45,6 +45,7 @@ class App extends Component<any, State> {
         <Header />
         <Textarea textareaUpdate = {this.handleTextareaUpdate} />
         <Button 
+          key={disableButton}
           disableButton={disableButton} 
           textValue={textValue} 
         />

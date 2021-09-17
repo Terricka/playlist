@@ -37,7 +37,10 @@ export default class Button extends Component<ButtonProps, ButtonState> {
 
         return (
             <div className="submit-button-container">
-             <button key={this.props.disableButton} disabled={disabled}>
+             <button 
+                disabled={disabled}
+                className={disabled ? 'disabled' : 'enabled'}
+             >
                 {label}
             </button>
         </div>  
